@@ -301,6 +301,14 @@ type TabType =
   | "Backend & Database"
   | "Tools";
 
+  const categories: TabType[] = [
+  "Semua",
+  "System Analyst",
+  "Frontend & Mobile",
+  "Backend & Database",
+  "Tools",
+];
+
 export default function Home() {
   const [formStatus, setFormStatus] = useState<
     "idle" | "submitting" | "success" | "error"
@@ -559,7 +567,7 @@ export default function Home() {
           {(Object.keys(techSkills) as TabType[]).map((category) => (
             <button
               key={category}
-              onClick={() => setActiveTab(category as TabType)}
+              onClick={() => setActiveTab(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm ${
                 activeTab === category
                   ? "bg-cyan-600/30 text-cyan-300 border border-cyan-500/80 shadow-[0_0_15px_rgba(6,182,212,0.5)]"
