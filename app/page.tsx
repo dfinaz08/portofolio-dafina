@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { image } from "framer-motion/client";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
@@ -557,10 +556,9 @@ export default function Home() {
         </motion.p>
 
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {Object.keys(techSkills).map((category) => (
-            <button
+          {(Object.keys(techSkills) as TabType[]).map((category) => (            <button
               key={category}
-              onClick={() => setActiveTab(category)}
+              onClick={() => setActiveTab(category as TabType)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm ${
                 activeTab === category
                   ? "bg-cyan-600/30 text-cyan-300 border border-cyan-500/80 shadow-[0_0_15px_rgba(6,182,212,0.5)]"
