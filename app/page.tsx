@@ -556,7 +556,8 @@ export default function Home() {
         </motion.p>
 
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {(Object.keys(techSkills) as TabType[]).map((category) => (            <button
+          {(Object.keys(techSkills) as TabType[]).map((category) => (
+            <button
               key={category}
               onClick={() => setActiveTab(category as TabType)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm ${
