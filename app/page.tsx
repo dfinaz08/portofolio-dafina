@@ -216,7 +216,10 @@ const workflows = [
   },
 ];
 
-const techSkills = {
+const techSkills: Record<
+  TabType,
+  { name: string; src: string }[]
+> = {
   Semua: [
     { name: "Laravel", src: "/logos/Laravel.png" },
     { name: "Python", src: "/logos/Python.png" },
@@ -292,11 +295,18 @@ const certificates = [
   },
 ];
 
+type TabType =
+  | "Semua"
+  | "System Analyst"
+  | "Frontend & Mobile"
+  | "Backend & Database"
+  | "Tools";
+
 export default function Home() {
   const [formStatus, setFormStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
-  const [activeTab, setActiveTab] = useState("Semua");
+  const [activeTab, setActiveTab] = useState<TabType>("Semua");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
